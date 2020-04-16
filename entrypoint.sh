@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/ash
 # e is for exiting the script automatically if a command fails, u is for exiting if a variable is not set
 # x would be for showing the commands before they are executed
 set -eu
@@ -43,8 +43,8 @@ else
   npm install --silent --global prettier
 fi
 
-echo "enabling globstar"
-shopt -s globstar
+# echo "enabling globstar"
+# shopt -s globstar
 echo "Prettifing files..."
 echo "Files:"
 prettier $INPUT_PRETTIER_OPTIONS || echo "Problem running prettier with $INPUT_PRETTIER_OPTIONS"
