@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # e is for exiting the script automatically if a command fails, u is for exiting if a variable is not set
 # x would be for showing the commands before they are executed
 set -eu
@@ -47,8 +47,9 @@ fi
 # shopt -s globstar
 echo "Prettifing files..."
 echo "Files:"
-prettier $INPUT_PRETTIER_OPTIONS || echo "Problem running prettier with $INPUT_PRETTIER_OPTIONS"
-
+if $INPUT_PRETTIER_WRITE; then
+    prettier --write $INPUT_PRETTIER_OPTIONS || echo "Problem running prettier with $INPUT_PRETTIER_OPTIONS"
+else prettier $INPUT_PRETTIER_OPTIONS || echo "Problem running prettier with $INPUT_PRETTIER_OPTIONS"
 # To keep runtime good, just continue if something was changed
 if _git_changed;
 then
