@@ -51,6 +51,8 @@ if $INPUT_PRETTIER_WRITE; then
     prettier --write $INPUT_PRETTIER_OPTIONS || echo "Problem running prettier with $INPUT_PRETTIER_OPTIONS"
 else prettier $INPUT_PRETTIER_OPTIONS || echo "Problem running prettier with $INPUT_PRETTIER_OPTIONS"
 # To keep runtime good, just continue if something was changed
+fi
+
 if _git_changed;
 then
   if $INPUT_DRY; then
