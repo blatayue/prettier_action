@@ -43,6 +43,8 @@ else
   npm install --silent --global prettier
 fi
 
+echo "enabling globstar"
+shopt -s globstar
 echo "Prettifing files..."
 echo "Files:"
 prettier $INPUT_PRETTIER_OPTIONS || echo "Problem running prettier with $INPUT_PRETTIER_OPTIONS"
